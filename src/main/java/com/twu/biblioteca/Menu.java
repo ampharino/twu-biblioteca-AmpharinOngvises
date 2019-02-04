@@ -8,6 +8,7 @@ public class Menu {
         System.out.println("Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!");
     }
     public static void getOptions(){
+        System.out.println("Available Commands:");
         System.out.println(options);
     }
 }

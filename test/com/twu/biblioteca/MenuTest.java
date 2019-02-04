@@ -29,7 +29,7 @@ public class MenuTest {
     @Test
     public void getOptionsTest(){
         Menu.getOptions();
-        assertEquals("list\tList of Books\n", outContent.toString());
+        assertEquals("Available Commands:\nlist\tList of Books\n", outContent.toString());
 
 
     }

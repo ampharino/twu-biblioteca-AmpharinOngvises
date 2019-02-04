@@ -30,7 +30,6 @@ public class CommandTest {
 
     @Test
     public void listBookCommandTest(){
-        BookList bookList = new BookList(BookList.defaultBookList());
         CommandController controller = new CommandController();
         controller.execute(CommandController.LIST_ALL_BOOKS);
         assertEquals("The Iliad | Homer | 1998" + "\n" +
@@ -44,6 +43,13 @@ public class CommandTest {
         int command = controller.parseCommand("invalidcommand");
         assertEquals(CommandController.INVALID_COMMAND, command);
 
+    }
+
+    @Test
+    public void executeInvalidCommand(){
+        CommandController controller = new CommandController();
+        controller.execute(CommandController.INVALID_COMMAND);
+        assertEquals("Please enter a valid option\n", outContent.toString());
     }
 
 }

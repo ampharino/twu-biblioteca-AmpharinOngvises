@@ -6,12 +6,12 @@ public class BibliotecaApp {
 
     public static void main(String[] args) {
         Menu.printWelcomeMsg();
-        BookList bookList = new BookList(BookList.defaultBookList());
         Menu.getOptions();
         CommandController controller = new CommandController();
-        Command listBooks = new listBooksCommand(bookList);
         while(true){
-
+            String input = controller.getCommandFromUser();
+            int command = controller.parseCommand(input);
+            controller.execute(command);
         }
 
     }
