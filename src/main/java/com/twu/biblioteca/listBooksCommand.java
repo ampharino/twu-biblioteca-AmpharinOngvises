@@ -7,9 +7,10 @@ public class listBooksCommand implements Command {
         this.bookList = bookList;
     }
 
-    @Override
     public void execute(){
-
+        bookList.printAllBooks();
     }
+
+
 
 }

@@ -7,7 +7,12 @@ public class BibliotecaApp {
     public static void main(String[] args) {
         Menu.printWelcomeMsg();
         BookList bookList = new BookList(BookList.defaultBookList());
-        bookList.printAllBooks();
+        Menu.getOptions();
+        CommandController controller = new CommandController();
+        Command listBooks = new listBooksCommand(bookList);
+        while(true){
+
+        }
 
     }
 }
