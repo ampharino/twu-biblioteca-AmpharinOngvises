@@ -32,6 +32,13 @@ public class BookList {
          return this.books;
      }
 
+    public void printAllBooks(){
+        for(Book currentBook : this.books){
+            System.out.println(currentBook.getTitle() + " | "
+                    + currentBook.getAuthor() + " | " + currentBook.getPublishYear());
+        }
+    }
+
 
 
 

@@ -1,10 +1,13 @@
 package com.twu.biblioteca;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
 
 import static org.junit.Assert.*;
 
+import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +17,20 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
 public class BookTest {
+
+    private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+    private final PrintStream originalOut = System.out;
+
+    @Before
+    public void setUpStreams(){
+        System.setOut(new PrintStream(outContent));
+    }
+
+    @After
+    public void restoreStreams(){
+        System.setOut(originalOut);
+    }
+
 
     @Test
     public void bookInfoTest(){
@@ -35,16 +52,14 @@ public class BookTest {
 
     @Test
     public void viewBookListTest(){
-        PrintStream printStream = mock(PrintStream.class);
-        MessagePrinter messagePrinter = new MessagePrinter(printStream);
         BookList bookList = new BookList();
         bookList.addBook(new Book("Book A", "Author A", 2018));
         bookList.addBook(new Book("Book B", "Author B", 2019));
-        messagePrinter.printAllBooks(bookList);
-        ArgumentCaptor<String> arguement = ArgumentCaptor.forClass(String.class);
-        verify(printStream, times(2)).println(arguement.capture());
-        assertEquals("Book A | Author A | 2018", arguement.getAllValues().get(0));
-        assertEquals("Book B | Author B | 2019", arguement.getAllValues().get(1));
+        bookList.printAllBooks();
+        assertEquals("Book A | Author A | 2018" + "\n"
+                + "Book B | Author B | 2019\n" , outContent.toString());
+
+
 
 
 

@@ -11,7 +11,7 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
-public class HomeTest {
+public class MenuTest {
 
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private final PrintStream originalOut = System.out;
@@ -27,10 +27,10 @@ public class HomeTest {
     }
 
     @Test
-    public void welcomeMessageTest(){
-        Menu.printWelcomeMsg();
-        assertEquals("Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!\n", outContent.toString());
+    public void getOptionsTest(){
+        Menu.getOptions();
+        assertEquals("list\tList of Books\n", outContent.toString());
+
 
     }
-
 }
