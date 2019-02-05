@@ -1,59 +1,57 @@
 package com.twu.biblioteca;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
+import java.util.Map;
 
 public class BookList {
-     private List<Book> books;
+     private Map<String,Book> books;
 
-     public BookList(List<Book> books){
+     public BookList(Map<String, Book> books){
          this.books = books;
      }
 
      public BookList(){
-         this.books = new ArrayList<>();
+         this.books = new HashMap<>();
      }
 
-     public static List<Book> defaultBookList(){
-         List<Book> books = new ArrayList<>();
-         books.add(new Book("The Iliad", "Homer", 1998));
-         books.add(new Book("The Winds of Winter",
+     public static Map<String,Book> defaultBookList(){
+         Map<String,Book> books = new HashMap<>();
+         books.put("The Iliad",new Book("The Iliad", "Homer", 1998));
+         books.put("The Winds of Winter", new Book("The Winds of Winter",
                  "George R. R. Martin", 2050 ));
-         books.add(new Book("Pet Sematary", "Stephen King", 1983));
+         books.put("Pet Sematary", new Book("Pet Sematary", "Stephen King", 1983));
          return books;
      }
 
      public void addBook(Book newBook){
-         this.books.add(newBook);
+         this.books.put(newBook.getTitle(),newBook);
      }
 
-     public List<Book> getBooks(){
+     public Map<String,Book> getBooks(){
          return this.books;
      }
 
-     public void checkOutBook(String title){
-         for(Book currentBook : this.books){
-             if(currentBook.getTitle().equals(title) && currentBook.isAvailable()){
-                 currentBook.setAvailable(false);
-                 System.out.println("Thank you! Enjoy the book");
-                 return;
-             }
-             else if(currentBook.getTitle().equals(title)){
-                 System.out.println("Sorry, that book is not available");
-                 return;
-             }
+     public Book checkOutBook(String title){
+         Book selectedBook = this.books.get(title);
+         if(selectedBook == null || !selectedBook.isAvailable()){
+             System.out.println("Sorry, that book is not available");
+             return null;
          }
-         System.out.println("Sorry, that book is not available");
+         else{
+             selectedBook.setAvailable(false);
+             System.out.println("Thank you! Enjoy the book");
+             return selectedBook;
+
+         }
      }
 
     public void printAllBooks(){
-        for(Book currentBook : this.books){
-            if(currentBook.isAvailable()){
-                System.out.println(currentBook.getTitle() + " | "
-                        + currentBook.getAuthor() + " | " + currentBook.getPublishYear());
-            }
-        }
+        this.books.forEach(
+                (title,book) -> {
+                    if(book.isAvailable()){
+                        System.out.println(title + " | " + book.getAuthor() + " | " + book.getPublishYear());
+                    }
+                });
     }
 
 

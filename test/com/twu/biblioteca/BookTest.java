@@ -64,9 +64,10 @@ public class BookTest {
     public void checkOutBookSuccess(){
         BookList bookList = new BookList(BookList.defaultBookList());
         bookList.checkOutBook("The Iliad");
+        assertEquals("Thank you! Enjoy the book\n", outContent.toString());
         bookList.printAllBooks();
-        assertEquals("Thank you! Enjoy the book\nThe Winds of Winter | George R. R. Martin | 2050\n" +
-                "Pet Sematary | Stephen King | 1983\n", outContent.toString());
+        String lines = outContent.toString();
+        assertEquals(3, lines.length()-lines.replace("\n","").length());
     }
 
     @Test
