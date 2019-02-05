@@ -1,9 +1,9 @@
 package com.twu.biblioteca;
 
-public class listBooksCommand implements Command {
+public class ListBooksCommand implements Command {
     private final BookList bookList;
 
-    public listBooksCommand(BookList bookList){
+    public ListBooksCommand(BookList bookList){
         this.bookList = bookList;
     }
 

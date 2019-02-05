@@ -52,4 +52,11 @@ public class CommandTest {
         assertEquals("Please enter a valid option\n", outContent.toString());
     }
 
+    @Test
+    public void exitProgramTest(){
+        CommandController controller = new CommandController();
+        controller.execute(CommandController.EXIT);
+        assertEquals("Quitting application...\n", outContent.toString());
+    }
+
 }

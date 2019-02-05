@@ -32,10 +32,21 @@ public class BookList {
          return this.books;
      }
 
+     public void checkOutBook(String title){
+         for(Book currentBook : this.books){
+             if(currentBook.getTitle().equals(title)){
+                 currentBook.setAvailable(false);
+             }
+         }
+     }
+
     public void printAllBooks(){
         for(Book currentBook : this.books){
-            System.out.println(currentBook.getTitle() + " | "
-                    + currentBook.getAuthor() + " | " + currentBook.getPublishYear());
+            if(currentBook.isAvailable()){
+                System.out.println(currentBook.getTitle() + " | "
+                        + currentBook.getAuthor() + " | " + currentBook.getPublishYear());
+            }
+
         }
     }
 

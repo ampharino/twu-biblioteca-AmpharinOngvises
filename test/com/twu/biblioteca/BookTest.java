@@ -58,10 +58,14 @@ public class BookTest {
         bookList.printAllBooks();
         assertEquals("Book A | Author A | 2018" + "\n"
                 + "Book B | Author B | 2019\n" , outContent.toString());
+    }
 
-
-
-
-
+    @Test
+    public void checkOutBook(){
+        BookList bookList = new BookList(BookList.defaultBookList());
+        bookList.checkOutBook("The Iliad");
+        bookList.printAllBooks();
+        assertEquals("The Winds of Winter | George R. R. Martin | 2050\n" +
+                "Pet Sematary | Stephen King | 1983\n", outContent.toString());
     }
 }
