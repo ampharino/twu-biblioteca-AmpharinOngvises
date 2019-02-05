@@ -1,7 +1,12 @@
 package com.twu.biblioteca;
 
 public class Menu {
-    private static final String options = "list\tList of Books";
+    private static final String[] options = {
+            "list\tList of Books",
+            "quit\tQuit Application",
+            "checkout [title]\t Check out book with selected title",
+
+    };
 
 
     public static void printWelcomeMsg(){
@@ -9,6 +14,9 @@ public class Menu {
     }
     public static void getOptions(){
         System.out.println("Available Commands:");
-        System.out.println(options);
+        for (String option:options) {
+            System.out.println(option);
+        }
+
     }
 }

@@ -14,8 +14,8 @@ public class CommandParser {
     public static String[] getCommandFromUser(){
         Scanner reader = new Scanner(System.in);
         System.out.println("Enter a command");
-        String input = reader.next();
-        return input.split(" ", 1);
+        String input = reader.nextLine();
+        return input.split(" ", 2);
     }
 
     public static int parseCommand(String cmd){

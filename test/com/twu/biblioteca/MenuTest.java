@@ -29,7 +29,9 @@ public class MenuTest {
     @Test
     public void getOptionsTest(){
         Menu.getOptions();
-        assertEquals("Available Commands:\nlist\tList of Books\n", outContent.toString());
+        assertEquals("Available Commands:\nlist\tList of Books\n" +
+                "quit\tQuit Application\n" +
+                "checkout [title]\t Check out book with selected title\n",outContent.toString());
 
 
     }

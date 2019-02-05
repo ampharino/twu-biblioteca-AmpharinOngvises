@@ -6,7 +6,6 @@ public class BibliotecaApp {
         Menu.printWelcomeMsg();
         Menu.getOptions();
         BookList bookList = new BookList(BookList.defaultBookList());
-        CommandParser controller = new CommandParser();
         Command listBooks = new ListBooksCommand(bookList);
         Command quit = new QuitCommand();
         Command invalid = new InvalidCommand();

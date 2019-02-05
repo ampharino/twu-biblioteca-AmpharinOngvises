@@ -61,11 +61,29 @@ public class BookTest {
     }
 
     @Test
-    public void checkOutBook(){
+    public void checkOutBookSuccess(){
         BookList bookList = new BookList(BookList.defaultBookList());
         bookList.checkOutBook("The Iliad");
         bookList.printAllBooks();
-        assertEquals("The Winds of Winter | George R. R. Martin | 2050\n" +
+        assertEquals("Thank you! Enjoy the book\nThe Winds of Winter | George R. R. Martin | 2050\n" +
                 "Pet Sematary | Stephen King | 1983\n", outContent.toString());
     }
+
+    @Test
+    public void checkOutUnavailableBook(){
+        BookList bookList = new BookList(BookList.defaultBookList());
+        bookList.checkOutBook("The Iliad");
+        bookList.checkOutBook("The Iliad");
+        assertEquals("Thank you! Enjoy the book\nSorry, that book is not available\n", outContent.toString());
+
+    }
+
+    @Test
+    public void checkOutInvalidBook(){
+        BookList bookList = new BookList(BookList.defaultBookList());
+        bookList.checkOutBook("invalidbook");
+        assertEquals("Sorry, that book is not available\n", outContent.toString());
+    }
+
+
 }

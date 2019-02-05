@@ -4,6 +4,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
@@ -35,6 +36,17 @@ public class CommandTest {
                         "Pet Sematary | Stephen King | 1983\n", outContent.toString());
     }
 
+
+    @Test
+    public void parseArgsTest(){
+        ByteArrayInputStream in  = new ByteArrayInputStream("checkout The Iliad".getBytes());
+        System.setIn(in);
+        String [] cmdAndArgs = CommandParser.getCommandFromUser();
+        assertEquals("checkout", cmdAndArgs[0]);
+        assertEquals(2,cmdAndArgs.length);
+        assertEquals("The Iliad", cmdAndArgs[1]);
+        System.setIn(System.in);
+    }
     @Test
     public void parseInvalidCommandTest(){
         int command = CommandParser.parseCommand("invalidcommand");
