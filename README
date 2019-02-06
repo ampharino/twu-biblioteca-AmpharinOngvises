@@ -27,3 +27,9 @@ Instructions to open your code in Intellij
 2. Select the directory containing the code
 DONE !
 
+Instructions to run the code
+==========================================
+
+1. `mvn package`
+2. `mvn exec:java`
+
