@@ -8,6 +8,8 @@ public class BibliotecaApp {
         Menu.printWelcomeMsg();
         Menu.getOptions();
         BookList bookList = new BookList(BookList.defaultBookList());
+        LibraryCatalog library = new LibraryCatalog();
+        ListItemsWrapper listItems = new ListItemsWrapper(library);
         Command listBooks = new ListItemsCommand(bookList);
         Command quit = new QuitCommand();
         Command invalid = new InvalidCommand();
@@ -19,20 +21,20 @@ public class BibliotecaApp {
         while(true){
             String[] cmdAndArgs = CommandParser.getCommandFromUser();
             int command = CommandParser.parseCommand(cmdAndArgs[0]);
+            String arg = cmdAndArgs[1];
             switch(command){
-                case CommandParser.LIST_ALL_BOOKS:
-                    listBooks.execute();
+                case CommandParser.LIST_ITEMS:
+                    ItemType type = ItemType.lookup(arg);
+                    listItems.execute(type);
                     break;
                 case CommandParser.EXIT:
                     quit.execute();
                     break;
                 case CommandParser.CHECKOUT:
-                    String bookTitle = cmdAndArgs[1];
-                    checkout.execute(bookTitle);
+                    checkout.execute(arg);
                     break;
                 case CommandParser.RETURN:
-                    bookTitle = cmdAndArgs[1];
-                    returnBook.execute(bookTitle);
+                    returnBook.execute(arg);
                     break;
                 case CommandParser.OPTIONS:
                     Menu.getOptions();

@@ -139,6 +139,14 @@ public class CommandTest {
         assertEquals(5, lines.length()-lines.replace("\n","").length());
     }
 
+    @Test
+    public void parseListType(){
+        int cmd = CommandParser.parseCommand("list");
+        assertEquals(CommandParser.LIST_ITEMS, cmd);
+
+    }
+
+
 
 
 }

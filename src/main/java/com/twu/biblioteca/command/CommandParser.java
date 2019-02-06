@@ -11,6 +11,8 @@ public class CommandParser {
     public static final int RETURN = 3;
     public static final int OPTIONS = 4;
     public static final int USER_BOOKS = 5;
+    public static final int LIST_ITEMS = 6;
+
 
 
     public static String[] getCommandFromUser(){
@@ -23,7 +25,7 @@ public class CommandParser {
     public static int parseCommand(String cmd){
         switch(cmd){
             case "list":
-                return LIST_ALL_BOOKS;
+                return LIST_ITEMS;
             case "quit":
                 return EXIT;
             case "checkout":
