@@ -3,7 +3,7 @@ package com.twu.biblioteca;
 import java.util.HashMap;
 import java.util.Map;
 
-public class BookList {
+public class BookList extends ItemList {
      private Map<String,Book> books;
 
      public BookList(Map<String, Book> books){
@@ -59,11 +59,12 @@ public class BookList {
          System.out.println("Thank you for returning the book");
      }
 
-    public void printAllBooks(){
+     @Override
+    public void displayAvailableItems(){
         this.books.forEach(
                 (title,book) -> {
                     if(book.isAvailable()){
-                        System.out.println(title + " | " + book.getAuthor() + " | " + book.getPublishYear());
+                        book.displayInfo();
                     }
                 });
     }

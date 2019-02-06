@@ -55,7 +55,7 @@ public class BookTest {
         BookList bookList = new BookList();
         bookList.addBook(new Book("Book A", "Author A", 2018));
         bookList.addBook(new Book("Book B", "Author B", 2019));
-        bookList.printAllBooks();
+        bookList.displayAvailableItems();
         assertEquals("Book A | Author A | 2018" + "\n"
                 + "Book B | Author B | 2019\n" , outContent.toString());
     }
@@ -65,7 +65,7 @@ public class BookTest {
         BookList bookList = new BookList(BookList.defaultBookList());
         bookList.checkOutBook("The Iliad");
         assertEquals("Thank you! Enjoy the book\n", outContent.toString());
-        bookList.printAllBooks();
+        bookList.displayAvailableItems();
         String lines = outContent.toString();
         assertEquals(3, lines.length()-lines.replace("\n","").length());
     }
@@ -85,6 +85,8 @@ public class BookTest {
         bookList.checkOutBook("invalidbook");
         assertEquals("Sorry, that book is not available\n", outContent.toString());
     }
+
+
 
 
 

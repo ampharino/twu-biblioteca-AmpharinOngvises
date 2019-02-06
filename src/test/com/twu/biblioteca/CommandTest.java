@@ -30,7 +30,7 @@ public class CommandTest {
 
     @Test
     public void listBookCommandTest(){
-        Command listBook = new ListBooksCommand(new BookList(BookList.defaultBookList()));
+        Command listBook = new ListItemsCommand(new BookList(BookList.defaultBookList()));
         listBook.execute();
         String lines = outContent.toString();
         assertEquals(3, lines.length()-lines.replace("\n","").length());
@@ -120,5 +120,25 @@ public class CommandTest {
         listUserBooks.execute();
         assertEquals("You have not checked out any books\n", outContent.toString());
     }
+
+    @Test
+    public void listBookType(){
+        LibraryCatalog library = new LibraryCatalog();
+        ListItemsWrapper listItem = new ListItemsWrapper(library);
+        listItem.execute(ItemType.BOOK);
+        String lines = outContent.toString();
+        assertEquals(3, lines.length()-lines.replace("\n","").length());
+    }
+
+    @Test
+    public void listMovieType(){
+        LibraryCatalog library = new LibraryCatalog();
+        ListItemsWrapper listItem = new ListItemsWrapper(library);
+        listItem.execute(ItemType.MOVIE);
+        String lines = outContent.toString();
+        assertEquals(5, lines.length()-lines.replace("\n","").length());
+    }
+
+
 
 }

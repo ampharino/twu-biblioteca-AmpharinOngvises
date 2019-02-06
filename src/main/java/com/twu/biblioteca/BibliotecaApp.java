@@ -8,7 +8,7 @@ public class BibliotecaApp {
         Menu.printWelcomeMsg();
         Menu.getOptions();
         BookList bookList = new BookList(BookList.defaultBookList());
-        Command listBooks = new ListBooksCommand(bookList);
+        Command listBooks = new ListItemsCommand(bookList);
         Command quit = new QuitCommand();
         Command invalid = new InvalidCommand();
         Customer user = new Customer();

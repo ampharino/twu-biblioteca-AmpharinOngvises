@@ -31,4 +31,6 @@ public class MovieTest {
         assertEquals("a | director | 1 | 10.0\n", outContent.toString());
     }
 
+
+
 }
