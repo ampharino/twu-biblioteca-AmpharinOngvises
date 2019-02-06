@@ -1,20 +1,14 @@
 package com.twu.biblioteca;
 
-public class Book {
-    private String title;
+public class Book extends LibraryItem{
     private String author;
     private int publishYear;
     private boolean isAvailable;
 
     public Book(String title, String author, int publishYear){
-        this.title = title;
+        super(title);
         this.author = author;
         this.publishYear = publishYear;
-        this.isAvailable = true;
-    }
-
-    public String getTitle(){
-        return this.title;
     }
 
     public String getAuthor(){
@@ -25,10 +19,9 @@ public class Book {
         return this.publishYear;
     }
 
-    public boolean isAvailable() { return this.isAvailable; }
 
-    public void setAvailable(boolean availability){
-        this.isAvailable = availability;
+    @Override
+    public void displayInfo() {
+        System.out.println(this.getTitle() + " | " + this.getAuthor() + " | " + this.getPublishYear());
     }
-
 }
