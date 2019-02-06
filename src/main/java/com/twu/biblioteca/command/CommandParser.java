@@ -1,14 +1,16 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.command;
 
 import java.util.Scanner;
 
 
 public class CommandParser {
-    static final int LIST_ALL_BOOKS = 0;
-    static final int INVALID_COMMAND = -1;
-    static final int EXIT = 1;
-    static final int CHECKOUT = 2;
-    static final int RETURN = 3;
+    public static final int LIST_ALL_BOOKS = 0;
+    public static final int INVALID_COMMAND = -1;
+    public static final int EXIT = 1;
+    public static final int CHECKOUT = 2;
+    public static final int RETURN = 3;
+    public static final int OPTIONS = 4;
+    public static final int USER_BOOKS = 5;
 
 
     public static String[] getCommandFromUser(){
@@ -26,6 +28,12 @@ public class CommandParser {
                 return EXIT;
             case "checkout":
                 return CHECKOUT;
+            case "return":
+                return RETURN;
+            case "options":
+                return OPTIONS;
+            case "mybooks":
+                return USER_BOOKS;
             default:
                 return INVALID_COMMAND;
 

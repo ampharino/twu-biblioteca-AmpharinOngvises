@@ -5,6 +5,9 @@ public class Menu {
             "list\tList of Books",
             "quit\tQuit Application",
             "checkout [title]\t Check out book with selected title",
+            "return [title]\t Return book with selected title",
+            "mybooks\t List books that you have currently checked out",
+            "options\t View Options"
 
     };
 

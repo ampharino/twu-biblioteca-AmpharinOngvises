@@ -1,5 +1,7 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.command.*;
+
 public class BibliotecaApp {
 
     public static void main(String[] args) {
@@ -9,6 +11,10 @@ public class BibliotecaApp {
         Command listBooks = new ListBooksCommand(bookList);
         Command quit = new QuitCommand();
         Command invalid = new InvalidCommand();
+        Customer user = new Customer();
+        CheckOutWrapper checkout = new CheckOutWrapper(user, bookList);
+        ReturnBookWrapper returnBook = new ReturnBookWrapper(user, bookList);
+        Command listUserBooks = new ListUserBooksCommand(user);
 
         while(true){
             String[] cmdAndArgs = CommandParser.getCommandFromUser();
@@ -22,7 +28,17 @@ public class BibliotecaApp {
                     break;
                 case CommandParser.CHECKOUT:
                     String bookTitle = cmdAndArgs[1];
-                    bookList.checkOutBook(bookTitle);
+                    checkout.execute(bookTitle);
+                    break;
+                case CommandParser.RETURN:
+                    bookTitle = cmdAndArgs[1];
+                    returnBook.execute(bookTitle);
+                    break;
+                case CommandParser.OPTIONS:
+                    Menu.getOptions();
+                    break;
+                case CommandParser.USER_BOOKS:
+                    listUserBooks.execute();
                     break;
                 default:
                     invalid.execute();

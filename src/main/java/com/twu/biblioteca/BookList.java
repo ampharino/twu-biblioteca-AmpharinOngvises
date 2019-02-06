@@ -33,7 +33,7 @@ public class BookList {
 
      public Book checkOutBook(String title){
          Book selectedBook = this.books.get(title);
-         if(selectedBook == null || !selectedBook.isAvailable()){
+         if(!checkBookAvailability(title)){
              System.out.println("Sorry, that book is not available");
              return null;
          }
@@ -43,6 +43,20 @@ public class BookList {
              return selectedBook;
 
          }
+     }
+
+     public boolean checkBookAvailability(String title){
+         Book selectedBook = this.books.get(title);
+         if(selectedBook == null || !selectedBook.isAvailable()){
+             return false;
+         }
+         return true;
+     }
+
+     public void makeBookAvailable(String title){
+         Book selectedBook = this.books.get(title);
+         selectedBook.setAvailable(true);
+         System.out.println("Thank you for returning the book");
      }
 
     public void printAllBooks(){
