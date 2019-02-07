@@ -6,11 +6,6 @@ public abstract class ItemList {
 
     public abstract void displayAvailableItems();
 
-
-
-
-
-
-
+    public abstract LibraryItem checkOutItem(String title);
 
 }

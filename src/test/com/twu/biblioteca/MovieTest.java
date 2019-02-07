@@ -31,6 +31,17 @@ public class MovieTest {
         assertEquals("a | director | 1 | 10.0\n", outContent.toString());
     }
 
+    @Test
+    public void checkOutMovie(){
+        ItemList movies = new MovieList(MovieList.defaultMovieList());
+        LibraryItem movie = movies.checkOutItem("Inception");
+        assertEquals("Inception", movie.getTitle());
+        assertEquals(false, movie.isAvailable());
+        assertEquals("Thank you! Enjoy the movie\n", outContent.toString());
+
+
+    }
+
 
 
 }

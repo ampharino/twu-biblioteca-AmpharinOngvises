@@ -36,4 +36,23 @@ public class MovieList extends ItemList{
                     }
                 });
     }
+
+    @Override
+    public LibraryItem checkOutItem(String title) {
+        Movie movie = movies.get(title);
+        if(!movieAvailable(movie)){
+            System.out.println("Sorry, that movie is not available");
+            return null;
+        }
+        else{
+            System.out.println("Thank you! Enjoy the movie");
+            movie.setAvailable(false);
+            return movie;
+        }
+    }
+
+    private boolean movieAvailable(Movie movie){
+        return movie != null && movie.isAvailable();
+
+    }
 }

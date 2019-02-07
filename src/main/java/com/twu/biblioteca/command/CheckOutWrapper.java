@@ -14,7 +14,7 @@ public class CheckOutWrapper {
     }
 
     public void execute(String title){
-        Book checkedOutBook = library.checkOutBook(title);
+        Book checkedOutBook = library.checkOutItem(title);
         if(checkedOutBook == null){
             return;
         }

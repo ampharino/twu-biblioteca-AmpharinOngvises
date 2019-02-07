@@ -31,7 +31,7 @@ public class CustomerTest {
     @Test
     public void checkedOutBookInCollection(){
         BookList bookList = new BookList(BookList.defaultBookList());
-        Book checkedOut = bookList.checkOutBook("The Iliad");
+        Book checkedOut = bookList.checkOutItem("The Iliad");
         Customer user = new Customer();
         assertEquals(0,user.getNumBooksCheckedOut());
         user.addBookToCollection(checkedOut);

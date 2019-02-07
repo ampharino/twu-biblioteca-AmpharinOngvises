@@ -63,7 +63,7 @@ public class BookTest {
     @Test
     public void checkOutBookSuccess(){
         BookList bookList = new BookList(BookList.defaultBookList());
-        bookList.checkOutBook("The Iliad");
+        bookList.checkOutItem("The Iliad");
         assertEquals("Thank you! Enjoy the book\n", outContent.toString());
         bookList.displayAvailableItems();
         String lines = outContent.toString();
@@ -73,8 +73,8 @@ public class BookTest {
     @Test
     public void checkOutUnavailableBook(){
         BookList bookList = new BookList(BookList.defaultBookList());
-        bookList.checkOutBook("The Iliad");
-        bookList.checkOutBook("The Iliad");
+        bookList.checkOutItem("The Iliad");
+        bookList.checkOutItem("The Iliad");
         assertEquals("Thank you! Enjoy the book\nSorry, that book is not available\n", outContent.toString());
 
     }
@@ -82,7 +82,7 @@ public class BookTest {
     @Test
     public void checkOutInvalidBook(){
         BookList bookList = new BookList(BookList.defaultBookList());
-        bookList.checkOutBook("invalidbook");
+        bookList.checkOutItem("invalidbook");
         assertEquals("Sorry, that book is not available\n", outContent.toString());
     }
 
