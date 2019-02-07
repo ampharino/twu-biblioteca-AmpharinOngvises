@@ -3,7 +3,7 @@ package com.twu.biblioteca;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MovieList extends ItemList{
+public class MovieList implements ItemList{
 
     private Map<String, Movie> movies;
 
