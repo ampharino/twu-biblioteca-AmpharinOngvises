@@ -16,6 +16,6 @@ public class CheckOutWrapper {
         if(checkedOutItem == null){
             return;
         }
-        currentUser.addItemToCollection(checkedOutItem);
+        currentUser.addItemToCollection(type, checkedOutItem);
     }
 }

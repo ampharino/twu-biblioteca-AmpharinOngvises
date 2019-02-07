@@ -60,4 +60,17 @@ public class MovieList extends ItemList{
         Movie movie = this.movies.get(title);
         return movieAvailable(movie);
     }
+
+    @Override
+    public void makeAvailable(String title){
+        Movie selectedMovie = this.movies.get(title);
+        selectedMovie.setAvailable(true);
+        System.out.println("Thank you for returning the movie");
+    }
+
+    @Override
+    public void addItem(LibraryItem item) {
+        Movie movie = (Movie)item;
+        this.movies.put(movie.getTitle(),movie);
+    }
 }

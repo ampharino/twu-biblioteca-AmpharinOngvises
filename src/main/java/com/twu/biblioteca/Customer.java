@@ -10,20 +10,24 @@ public class Customer {
         this.checkedOutItems = new HashMap<>();
     }
 
-    public void addItemToCollection(LibraryItem item){
-        this.checkedOutItems.put(item.getTitle(),item);
+    public void addItemToCollection(ItemType type, LibraryItem item){
+        this.checkedOutItems.put(this.getKey(type,item.getTitle()),item);
     }
 
     public int getNumBooksCheckedOut(){
         return this.checkedOutItems.size();
     }
 
-    public void removeBookFromCollection(String title){
-        this.checkedOutItems.remove(title);
+    public void removeItemFromCollection(ItemType type, String title){
+        this.checkedOutItems.remove(this.getKey(type,title));
     }
 
-    public boolean hasItem(String title){
-        return this.checkedOutItems.containsKey(title);
+    public boolean hasItem(ItemType type, String title){
+        return this.checkedOutItems.containsKey(this.getKey(type,title));
+    }
+
+    private String getKey(ItemType type, String title){
+        return String.valueOf(type)+title;
     }
 
     public void listBooks(){

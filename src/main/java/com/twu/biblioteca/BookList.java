@@ -23,9 +23,6 @@ public class BookList extends ItemList {
          return books;
      }
 
-     public void addBook(Book newBook){
-         this.books.put(newBook.getTitle(),newBook);
-     }
 
      public Map<String,Book> getBooks(){
          return this.books;
@@ -57,13 +54,20 @@ public class BookList extends ItemList {
          return bookAvailable(book);
      }
 
-     public void makeBookAvailable(String title){
+     @Override
+     public void makeAvailable(String title){
          Book selectedBook = this.books.get(title);
          selectedBook.setAvailable(true);
          System.out.println("Thank you for returning the book");
      }
 
-     @Override
+    @Override
+    public void addItem(LibraryItem item) {
+        Book book = (Book)item;
+        this.books.put(book.getTitle(),book);
+    }
+
+    @Override
     public void displayAvailableItems(){
         this.books.forEach(
                 (title,book) -> {

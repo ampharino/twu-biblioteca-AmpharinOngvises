@@ -45,7 +45,7 @@ public class BookTest {
         Book testBook = new Book("Book A", "Author A", 2018);
         BookList bookList = new BookList();
         assertEquals(0, bookList.getBooks().size());
-        bookList.addBook(testBook);
+        bookList.addItem(testBook);
         assertEquals(1,bookList.getBooks().size());
 
     }
@@ -53,8 +53,8 @@ public class BookTest {
     @Test
     public void viewBookListTest(){
         BookList bookList = new BookList();
-        bookList.addBook(new Book("Book A", "Author A", 2018));
-        bookList.addBook(new Book("Book B", "Author B", 2019));
+        bookList.addItem(new Book("Book A", "Author A", 2018));
+        bookList.addItem(new Book("Book B", "Author B", 2019));
         bookList.displayAvailableItems();
         assertEquals("Book A | Author A | 2018" + "\n"
                 + "Book B | Author B | 2019\n" , outContent.toString());

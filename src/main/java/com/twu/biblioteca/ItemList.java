@@ -10,4 +10,8 @@ public abstract class ItemList {
 
     public abstract boolean checkAvailability(String title);
 
+    public abstract void makeAvailable(String title);
+
+    public abstract void addItem(LibraryItem item);
+
 }

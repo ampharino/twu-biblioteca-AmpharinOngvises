@@ -24,7 +24,22 @@ public class LibraryCatalog {
             case BOOK:
                 return this.bookList.checkOutItem(title);
             default:
+                System.out.println("Sorry, that item is not available");
                 return null;
+        }
+    }
+
+    public void makeItemAvailable(ItemType type, String title){
+        switch(type){
+            case MOVIE:
+                this.movieList.makeAvailable(title);
+                break;
+            case BOOK:
+                this.bookList.makeAvailable(title);
+                break;
+            default:
+                System.out.println("Huh?");
+
         }
     }
 }

@@ -50,7 +50,7 @@ public class ListCommandTest {
         Customer user = new Customer();
         Command listUserBooks = new ListUserBooksCommand(user);
         Book book = new Book("a", "author", 1);
-        user.addItemToCollection(book);
+        user.addItemToCollection(ItemType.BOOK,book);
         listUserBooks.execute();
         assertEquals("a | author | 1\n", outContent.toString());
     }

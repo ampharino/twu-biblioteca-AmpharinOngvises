@@ -34,7 +34,7 @@ public class CustomerTest {
         Book checkedOut = bookList.checkOutItem("The Iliad");
         Customer user = new Customer();
         assertEquals(0,user.getNumBooksCheckedOut());
-        user.addItemToCollection(checkedOut);
+        user.addItemToCollection(ItemType.BOOK,checkedOut);
         assertEquals(1,user.getNumBooksCheckedOut());
     }
 
@@ -42,20 +42,31 @@ public class CustomerTest {
     public void removeBookFromCollection(){
         Book testBook = new Book("a", "author", 1);
         Customer user = new Customer();
-        user.addItemToCollection(testBook);
+        user.addItemToCollection(ItemType.BOOK,testBook);
         assertEquals(1,user.getNumBooksCheckedOut());
-        user.removeBookFromCollection("a");
+        user.removeItemFromCollection(ItemType.BOOK,"a");
         assertEquals(0, user.getNumBooksCheckedOut());
+    }
+
+    @Test
+    public void addMovieToCollection(){
+        Customer user = new Customer();
+        Book book = new Book("IT", "Stephen King", 1990);
+        user.addItemToCollection(ItemType.BOOK,book);
+        assertEquals(false,user.hasItem(ItemType.MOVIE, "IT"));
+        assertEquals(true, user.hasItem(ItemType.BOOK,"IT"));
     }
 
     @Test
     public void listUserBooks(){
         Book testBook = new Book("a","author",1);
         Customer user = new Customer();
-        user.addItemToCollection(testBook);
+        user.addItemToCollection(ItemType.BOOK, testBook);
         user.listBooks();
         assertEquals("a | author | 1\n", outContent.toString());
     }
+
+
 
 
 

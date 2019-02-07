@@ -31,7 +31,7 @@ public class CheckOutCommandTest {
         Customer user = new Customer();
         CheckOutWrapper checkout = new CheckOutWrapper(user,library);
         checkout.execute(ItemType.BOOK, "invalidbook");
-        assertEquals(false, user.hasItem("invalidbook"));
+        assertEquals(false, user.hasItem(ItemType.BOOK,"invalidbook"));
         assertEquals("Sorry, that book is not available\n", outContent.toString());
     }
 
@@ -41,7 +41,7 @@ public class CheckOutCommandTest {
         Customer user = new Customer();
         CheckOutWrapper checkout = new CheckOutWrapper(user,library);
         checkout.execute(ItemType.BOOK,"The Iliad");
-        assertEquals(true, user.hasItem("The Iliad"));
+        assertEquals(true, user.hasItem(ItemType.BOOK,"The Iliad"));
         assertEquals(false, library.getBookList().checkAvailability("The Iliad"));
     }
 
@@ -51,8 +51,17 @@ public class CheckOutCommandTest {
         Customer user = new Customer();
         CheckOutWrapper checkout = new CheckOutWrapper(user, library);
         checkout.execute(ItemType.MOVIE, "Inception");
-        assertEquals(true, user.hasItem("Inception"));
+        assertEquals(true, user.hasItem(ItemType.MOVIE,"Inception"));
         assertEquals(false,library.getMovieList().checkAvailability("Inception"));
+    }
+
+    @Test
+    public void checkOutInvalidType(){
+        LibraryCatalog library = new LibraryCatalog();
+        Customer user = new Customer();
+        CheckOutWrapper checkout = new CheckOutWrapper(user,library);
+        checkout.execute(ItemType.INVALID,"Inception");
+        assertEquals("Sorry, that item is not available\n", outContent.toString());
     }
 
 }
