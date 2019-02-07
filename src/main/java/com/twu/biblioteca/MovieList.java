@@ -53,6 +53,11 @@ public class MovieList extends ItemList{
 
     private boolean movieAvailable(Movie movie){
         return movie != null && movie.isAvailable();
+    }
 
+    @Override
+    public boolean checkAvailability(String title){
+        Movie movie = this.movies.get(title);
+        return movieAvailable(movie);
     }
 }

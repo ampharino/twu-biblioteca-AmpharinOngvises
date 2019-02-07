@@ -1,23 +1,21 @@
 package com.twu.biblioteca.command;
 
-import com.twu.biblioteca.Book;
-import com.twu.biblioteca.BookList;
-import com.twu.biblioteca.Customer;
+import com.twu.biblioteca.*;
 
 public class CheckOutWrapper {
     private Customer currentUser;
-    private BookList library;
+    private LibraryCatalog library;
 
-    public CheckOutWrapper(Customer user, BookList bookList){
+    public CheckOutWrapper(Customer user, LibraryCatalog catalog){
         this.currentUser = user;
-        this.library = bookList;
+        this.library = catalog;
     }
 
-    public void execute(String title){
-        Book checkedOutBook = library.checkOutItem(title);
-        if(checkedOutBook == null){
+    public void execute(ItemType type, String title){
+        LibraryItem checkedOutItem = library.checkOut(type, title);
+        if(checkedOutItem == null){
             return;
         }
-        currentUser.addBookToCollection(checkedOutBook);
+        currentUser.addItemToCollection(checkedOutItem);
     }
 }

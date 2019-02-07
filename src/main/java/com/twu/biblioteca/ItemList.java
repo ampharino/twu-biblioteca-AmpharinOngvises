@@ -8,4 +8,6 @@ public abstract class ItemList {
 
     public abstract LibraryItem checkOutItem(String title);
 
+    public abstract boolean checkAvailability(String title);
+
 }

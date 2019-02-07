@@ -1,5 +1,6 @@
 package com.twu.biblioteca.command;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 
@@ -16,10 +17,15 @@ public class CommandParser {
 
 
     public static String[] getCommandFromUser(){
+        String [] cmdAndArgs = new String[3];
         Scanner reader = new Scanner(System.in);
         System.out.println("Enter a command");
         String input = reader.nextLine();
-        return input.split(" ", 2);
+        String [] splitInput = input.split(" ", 3);
+        for(int i=0; i<splitInput.length; i++){
+            cmdAndArgs[i] = splitInput[i];
+        }
+        return cmdAndArgs;
     }
 
     public static int parseCommand(String cmd){

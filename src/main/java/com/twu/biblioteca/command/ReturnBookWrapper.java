@@ -13,7 +13,7 @@ public class ReturnBookWrapper {
     }
 
     public void execute(String title){
-        if(!this.currentUser.hasBook(title)){
+        if(!this.currentUser.hasItem(title)){
             System.out.println("That is not a valid book to return");
             return;
         }

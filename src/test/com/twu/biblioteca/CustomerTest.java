@@ -34,7 +34,7 @@ public class CustomerTest {
         Book checkedOut = bookList.checkOutItem("The Iliad");
         Customer user = new Customer();
         assertEquals(0,user.getNumBooksCheckedOut());
-        user.addBookToCollection(checkedOut);
+        user.addItemToCollection(checkedOut);
         assertEquals(1,user.getNumBooksCheckedOut());
     }
 
@@ -42,7 +42,7 @@ public class CustomerTest {
     public void removeBookFromCollection(){
         Book testBook = new Book("a", "author", 1);
         Customer user = new Customer();
-        user.addBookToCollection(testBook);
+        user.addItemToCollection(testBook);
         assertEquals(1,user.getNumBooksCheckedOut());
         user.removeBookFromCollection("a");
         assertEquals(0, user.getNumBooksCheckedOut());
@@ -52,7 +52,7 @@ public class CustomerTest {
     public void listUserBooks(){
         Book testBook = new Book("a","author",1);
         Customer user = new Customer();
-        user.addBookToCollection(testBook);
+        user.addItemToCollection(testBook);
         user.listBooks();
         assertEquals("a | author | 1\n", outContent.toString());
     }

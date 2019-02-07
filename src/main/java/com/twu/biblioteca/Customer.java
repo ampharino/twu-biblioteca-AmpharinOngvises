@@ -4,32 +4,32 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Customer {
-    private Map<String,Book> checkedOutBooks;
+    private Map<String,LibraryItem> checkedOutItems;
 
     public Customer(){
-        this.checkedOutBooks = new HashMap<>();
+        this.checkedOutItems = new HashMap<>();
     }
 
-    public void addBookToCollection(Book book){
-        this.checkedOutBooks.put(book.getTitle(),book);
+    public void addItemToCollection(LibraryItem item){
+        this.checkedOutItems.put(item.getTitle(),item);
     }
 
     public int getNumBooksCheckedOut(){
-        return this.checkedOutBooks.size();
+        return this.checkedOutItems.size();
     }
 
     public void removeBookFromCollection(String title){
-        this.checkedOutBooks.remove(title);
+        this.checkedOutItems.remove(title);
     }
 
-    public boolean hasBook(String title){
-        return this.checkedOutBooks.containsKey(title);
+    public boolean hasItem(String title){
+        return this.checkedOutItems.containsKey(title);
     }
 
     public void listBooks(){
-        this.checkedOutBooks.forEach(
-                (title,book)-> {
-                    System.out.println(title + " | " + book.getAuthor() + " | " + book.getPublishYear());
+        this.checkedOutItems.forEach(
+                (title,item)-> {
+                    item.displayInfo();
                 }
                 );
     }

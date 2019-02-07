@@ -35,7 +35,7 @@ public class BookList extends ItemList {
      @Override
      public Book checkOutItem(String title){
          Book selectedBook = this.books.get(title);
-         if(!checkBookAvailability(selectedBook)){
+         if(!bookAvailable(selectedBook)){
              System.out.println("Sorry, that book is not available");
              return null;
          }
@@ -47,13 +47,14 @@ public class BookList extends ItemList {
          }
      }
 
-     private boolean checkBookAvailability(Book book){
+     private boolean bookAvailable(Book book){
          return book != null && book.isAvailable();
      }
 
-     public boolean checkBookAvailability(String title){
+     @Override
+     public boolean checkAvailability(String title){
          Book book = books.get(title);
-         return book != null && book.isAvailable();
+         return bookAvailable(book);
      }
 
      public void makeBookAvailable(String title){

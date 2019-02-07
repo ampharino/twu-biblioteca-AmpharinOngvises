@@ -38,8 +38,14 @@ public class MovieTest {
         assertEquals("Inception", movie.getTitle());
         assertEquals(false, movie.isAvailable());
         assertEquals("Thank you! Enjoy the movie\n", outContent.toString());
+    }
 
-
+    @Test
+    public void checkOutInvalidMovie(){
+        ItemList movies = new MovieList(MovieList.defaultMovieList());
+        LibraryItem movie = movies.checkOutItem("invalid");
+        assertEquals(null,movie);
+        assertEquals("Sorry, that movie is not available\n", outContent.toString());
     }
 
 

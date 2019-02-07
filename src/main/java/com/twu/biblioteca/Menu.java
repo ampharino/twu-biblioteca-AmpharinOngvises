@@ -4,9 +4,9 @@ public class Menu {
     private static final String[] options = {
             "list [type]\tList available movies or books",
             "quit\tQuit Application",
-            "checkout [title]\t Check out book with selected title",
+            "checkout [type] [title]\t Check out book with selected title",
             "return [title]\t Return book with selected title",
-            "mybooks\t List books that you have currently checked out",
+            "myItems\t List all items that you have currently checked out",
             "options\t View Options"
 
     };
