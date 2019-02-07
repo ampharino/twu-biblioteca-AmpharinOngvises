@@ -66,6 +66,24 @@ public class CustomerTest {
         assertEquals("a | author | 1\n", outContent.toString());
     }
 
+    @Test
+    public void userLookup(){
+        PredefinedUsers user = PredefinedUsers.lookup("123-4567");
+        assertEquals(PredefinedUsers.USER1,user);
+    }
+
+    @Test
+    public void login(){
+        Customer currentUser = Customer.login("123-4567", "password1");
+        assertEquals("Adam", currentUser.getName());
+    }
+
+    @Test
+    public void loginFail(){
+        Customer currentUser = Customer.login("123-4567", "adsf");
+        assertEquals("Incorrect password\n", outContent.toString());
+    }
+
 
 
 
