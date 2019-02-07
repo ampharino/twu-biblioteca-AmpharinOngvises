@@ -11,9 +11,10 @@ public class CommandParser {
     public static final int CHECKOUT = 2;
     public static final int RETURN = 3;
     public static final int OPTIONS = 4;
-    public static final int USER_BOOKS = 5;
+    public static final int USER_ITEMS = 5;
     public static final int LIST_ITEMS = 6;
-
+    public static final int LOGIN = 7;
+    public static final int CONTACT_INFO = 8;
 
 
     public static String[] getCommandFromUser(){
@@ -40,8 +41,12 @@ public class CommandParser {
                 return RETURN;
             case "options":
                 return OPTIONS;
-            case "mybooks":
-                return USER_BOOKS;
+            case "myitems":
+                return USER_ITEMS;
+            case "login":
+                return LOGIN;
+            case "myinfo":
+                return CONTACT_INFO;
             default:
                 return INVALID_COMMAND;
 

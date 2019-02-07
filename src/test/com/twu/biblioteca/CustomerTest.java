@@ -8,10 +8,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
 import static org.junit.Assert.*;
-import static org.mockito.ArgumentMatchers.anyInt;
-import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 public class CustomerTest {
 
@@ -33,9 +30,9 @@ public class CustomerTest {
         BookList bookList = new BookList(BookList.defaultBookList());
         Book checkedOut = bookList.checkOutItem("The Iliad");
         Customer user = new Customer();
-        assertEquals(0,user.getNumBooksCheckedOut());
+        assertEquals(0,user.getNumItemsCheckedOut());
         user.addItemToCollection(ItemType.BOOK,checkedOut);
-        assertEquals(1,user.getNumBooksCheckedOut());
+        assertEquals(1,user.getNumItemsCheckedOut());
     }
 
     @Test
@@ -43,9 +40,9 @@ public class CustomerTest {
         Book testBook = new Book("a", "author", 1);
         Customer user = new Customer();
         user.addItemToCollection(ItemType.BOOK,testBook);
-        assertEquals(1,user.getNumBooksCheckedOut());
+        assertEquals(1,user.getNumItemsCheckedOut());
         user.removeItemFromCollection(ItemType.BOOK,"a");
-        assertEquals(0, user.getNumBooksCheckedOut());
+        assertEquals(0, user.getNumItemsCheckedOut());
     }
 
     @Test

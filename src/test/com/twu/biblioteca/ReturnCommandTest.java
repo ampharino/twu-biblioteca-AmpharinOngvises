@@ -35,7 +35,7 @@ public class ReturnCommandTest {
         ReturnItemWrapper returnBook = new ReturnItemWrapper(user,library);
         returnBook.execute(ItemType.BOOK,"A");
         assertEquals(true,testBook.isAvailable());
-        assertEquals(0,user.getNumBooksCheckedOut());
+        assertEquals(0,user.getNumItemsCheckedOut());
     }
 
     @Test
@@ -67,7 +67,7 @@ public class ReturnCommandTest {
         ReturnItemWrapper returnMovie = new ReturnItemWrapper(user,library);
         returnMovie.execute(ItemType.MOVIE,"A");
         assertEquals(true,movie.isAvailable());
-        assertEquals(0,user.getNumBooksCheckedOut());
+        assertEquals(0,user.getNumItemsCheckedOut());
     }
 
     @Test

@@ -11,10 +11,10 @@ public class BibliotecaApp {
         ListItemsWrapper listItems = new ListItemsWrapper(library);
         Command quit = new QuitCommand();
         Command invalid = new InvalidCommand();
-        Customer user = new Customer();
-        CheckOutWrapper checkout = new CheckOutWrapper(user, library);
-        ReturnItemWrapper returnItem = new ReturnItemWrapper(user, library);
-        Command listUserBooks = new ListUserBooksCommand(user);
+        Customer user = null;
+        CheckOutWrapper checkout = null;
+        ReturnItemWrapper returnItem = null;
+        Command listUserItems = null;
 
         while(true){
             String[] cmdAndArgs = CommandParser.getCommandFromUser();
@@ -29,16 +29,42 @@ public class BibliotecaApp {
                     quit.execute();
                     break;
                 case CommandParser.CHECKOUT:
+                    if(user == null){
+                        System.out.println("Please login to checkout items");
+                        break;
+                    }
                     checkout.execute(type, title);
                     break;
                 case CommandParser.RETURN:
+                    if(user == null){
+                        System.out.println("Please login to return items");
+                        break;
+                    }
                     returnItem.execute(type, title);
                     break;
                 case CommandParser.OPTIONS:
                     Menu.getOptions();
                     break;
-                case CommandParser.USER_BOOKS:
-                    listUserBooks.execute();
+                case CommandParser.USER_ITEMS:
+                    if(user == null){
+                        System.out.println("Please login to view your checked out items");
+                        break;
+                    }
+                    listUserItems.execute();
+                    break;
+                case CommandParser.LOGIN:
+                    user = LoginCommand.execute(user);
+                    checkout = new CheckOutWrapper(user, library);
+                    returnItem = new ReturnItemWrapper(user, library);
+                    listUserItems = new ListUserBooksCommand(user);
+                    break;
+
+                case CommandParser.CONTACT_INFO:
+                    if(user == null){
+                        System.out.println("Please login");
+                        break;
+                    }
+                    user.viewInfo();
                     break;
                 default:
                     invalid.execute();

@@ -3,7 +3,8 @@ package com.twu.biblioteca;
 public enum PredefinedUsers {
 
     USER1("Adam", "123-4567", "password1", "adam@email.com", "123-456-7890" ),
-    USER2("David", "098-7654", "password2", "david@email.com", "098-765-4321");
+    USER2("David", "098-7654", "password2", "david@email.com", "098-765-4321"),
+    GUEST("Guest", "", "", "", "");
 
 
     private final String name;
@@ -22,7 +23,7 @@ public enum PredefinedUsers {
 
     public static PredefinedUsers lookup(String libraryNumber){
             for(PredefinedUsers user : values()){
-                if(user.libraryNumber == libraryNumber){
+                if(user.libraryNumber.equals(libraryNumber)){
                     return user;
                 }
             }
@@ -30,7 +31,7 @@ public enum PredefinedUsers {
     }
 
     public boolean passwordMatch(String password){
-        return this.password == password;
+        return this.password.equals(password);
     }
 
     public String getName(){

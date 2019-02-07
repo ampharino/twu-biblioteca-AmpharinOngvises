@@ -3,11 +3,13 @@ package com.twu.biblioteca;
 public class Menu {
     private static final String[] options = {
             "list [type]\tList available movies or books",
-            "quit\tQuit Application",
+            "login\t Login",
             "checkout [type] [title]\t Check out book with selected title",
-            "return [title]\t Return book with selected title",
-            "myItems\t List all items that you have currently checked out",
-            "options\t View Options"
+            "return [type] [title]\t Return book with selected title",
+            "myinfo\t View my contact information",
+            "myitems\t List all items that you have currently checked out",
+            "options\t View Options",
+            "quit\tQuit Application",
 
     };
 

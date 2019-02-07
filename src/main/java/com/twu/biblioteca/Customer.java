@@ -32,11 +32,15 @@ public class Customer {
         return phoneNumber;
     }
 
+    public void viewInfo(){
+        System.out.println(name + " | " + email + " | " + phoneNumber);
+    }
+
     public void addItemToCollection(ItemType type, LibraryItem item){
         this.checkedOutItems.put(this.getKey(type,item.getTitle()),item);
     }
 
-    public int getNumBooksCheckedOut(){
+    public int getNumItemsCheckedOut(){
         return this.checkedOutItems.size();
     }
 
