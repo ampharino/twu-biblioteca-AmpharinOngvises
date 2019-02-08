@@ -1,15 +1,14 @@
 package com.twu.biblioteca.command;
 
-import com.twu.biblioteca.BookList;
-import com.twu.biblioteca.Customer;
-import com.twu.biblioteca.ItemType;
-import com.twu.biblioteca.LibraryCatalog;
+import com.twu.biblioteca.user.User;
+import com.twu.biblioteca.item.ItemType;
+import com.twu.biblioteca.itemlist.LibraryCatalog;
 
 public class ReturnItemWrapper {
-    private Customer currentUser;
+    private User currentUser;
     private LibraryCatalog library;
 
-    public ReturnItemWrapper(Customer user, LibraryCatalog library){
+    public ReturnItemWrapper(User user, LibraryCatalog library){
         this.currentUser = user;
         this.library = library;
     }

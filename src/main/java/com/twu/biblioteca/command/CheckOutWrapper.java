@@ -1,12 +1,15 @@
 package com.twu.biblioteca.command;
 
-import com.twu.biblioteca.*;
+import com.twu.biblioteca.item.ItemType;
+import com.twu.biblioteca.item.LibraryItem;
+import com.twu.biblioteca.itemlist.LibraryCatalog;
+import com.twu.biblioteca.user.User;
 
 public class CheckOutWrapper {
-    private Customer currentUser;
+    private User currentUser;
     private LibraryCatalog library;
 
-    public CheckOutWrapper(Customer user, LibraryCatalog catalog){
+    public CheckOutWrapper(User user, LibraryCatalog catalog){
         this.currentUser = user;
         this.library = catalog;
     }

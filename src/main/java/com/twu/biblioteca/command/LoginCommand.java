@@ -1,15 +1,15 @@
 package com.twu.biblioteca.command;
 
-import com.twu.biblioteca.Customer;
+import com.twu.biblioteca.user.User;
 
 import java.util.Scanner;
 
 public class LoginCommand{
-    public Customer sessionUser;
+    public User sessionUser;
 
 
 
-    public static Customer execute(Customer user) {
+    public static User execute(User user) {
         if(user != null){
             System.out.println("You are already logged in");
             return user;
@@ -19,6 +19,6 @@ public class LoginCommand{
         String libraryNumber = reader.nextLine();
         System.out.println("Enter your password");
         String password = reader.nextLine();
-        return Customer.login(libraryNumber, password);
+        return User.login(libraryNumber, password);
     }
 }

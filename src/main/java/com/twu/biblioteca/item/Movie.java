@@ -1,4 +1,4 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.item;
 
 public class Movie extends LibraryItem{
     private String director;

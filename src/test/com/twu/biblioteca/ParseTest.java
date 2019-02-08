@@ -1,6 +1,7 @@
 package com.twu.biblioteca;
 
 import com.twu.biblioteca.command.CommandParser;
+import com.twu.biblioteca.command.CommandType;
 import org.junit.Test;
 
 import java.io.ByteArrayInputStream;
@@ -11,15 +12,15 @@ public class ParseTest {
 
     @Test
     public void parseListType(){
-        int cmd = CommandParser.parseCommand("list");
-        assertEquals(CommandParser.LIST_ITEMS, cmd);
+        CommandType cmd = CommandParser.parseCommand("list");
+        assertEquals(CommandType.LIST_ITEMS, cmd);
 
     }
 
     @Test
     public void parseInvalidCommandTest(){
-        int command = CommandParser.parseCommand("invalidcommand");
-        assertEquals(CommandParser.INVALID_COMMAND, command);
+        CommandType command = CommandParser.parseCommand("invalidcommand");
+        assertEquals(CommandType.INVALID_COMMAND, command);
     }
 
     @Test

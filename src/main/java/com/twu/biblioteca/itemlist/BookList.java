@@ -1,10 +1,13 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.itemlist;
+
+import com.twu.biblioteca.item.Book;
+import com.twu.biblioteca.item.LibraryItem;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class BookList implements ItemList {
-     private Map<String,Book> books;
+     private Map<String, Book> books;
 
      public BookList(Map<String, Book> books){
          this.books = books;

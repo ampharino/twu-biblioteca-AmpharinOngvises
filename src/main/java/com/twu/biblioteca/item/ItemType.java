@@ -1,4 +1,4 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.item;
 
 public enum ItemType {
     BOOK, MOVIE, INVALID;

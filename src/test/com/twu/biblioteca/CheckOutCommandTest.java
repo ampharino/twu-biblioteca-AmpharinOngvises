@@ -1,6 +1,9 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.item.ItemType;
+import com.twu.biblioteca.itemlist.LibraryCatalog;
 import com.twu.biblioteca.command.CheckOutWrapper;
+import com.twu.biblioteca.user.User;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -28,7 +31,7 @@ public class CheckOutCommandTest {
     @Test
     public void  checkOutInvalid(){
         LibraryCatalog library = new LibraryCatalog();
-        Customer user = new Customer();
+        User user = new User();
         CheckOutWrapper checkout = new CheckOutWrapper(user,library);
         checkout.execute(ItemType.BOOK, "invalidbook");
         assertEquals(false, user.hasItem(ItemType.BOOK,"invalidbook"));
@@ -38,7 +41,7 @@ public class CheckOutCommandTest {
     @Test
     public void checkOutBookCommand(){
         LibraryCatalog library = new LibraryCatalog();
-        Customer user = new Customer();
+        User user = new User();
         CheckOutWrapper checkout = new CheckOutWrapper(user,library);
         checkout.execute(ItemType.BOOK,"The Iliad");
         assertEquals(true, user.hasItem(ItemType.BOOK,"The Iliad"));
@@ -48,7 +51,7 @@ public class CheckOutCommandTest {
     @Test
     public void checkOutMovieCommand(){
         LibraryCatalog library = new LibraryCatalog();
-        Customer user = new Customer();
+        User user = new User();
         CheckOutWrapper checkout = new CheckOutWrapper(user, library);
         checkout.execute(ItemType.MOVIE, "Inception");
         assertEquals(true, user.hasItem(ItemType.MOVIE,"Inception"));
@@ -58,7 +61,7 @@ public class CheckOutCommandTest {
     @Test
     public void checkOutInvalidType(){
         LibraryCatalog library = new LibraryCatalog();
-        Customer user = new Customer();
+        User user = new User();
         CheckOutWrapper checkout = new CheckOutWrapper(user,library);
         checkout.execute(ItemType.INVALID,"Inception");
         assertEquals("Sorry, that item is not available\n", outContent.toString());

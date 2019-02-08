@@ -1,6 +1,11 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.item.Book;
+import com.twu.biblioteca.item.ItemType;
+import com.twu.biblioteca.item.Movie;
+import com.twu.biblioteca.itemlist.LibraryCatalog;
 import com.twu.biblioteca.command.ReturnItemWrapper;
+import com.twu.biblioteca.user.User;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -27,7 +32,7 @@ public class ReturnCommandTest {
     @Test
     public void returnBookCommand(){
         LibraryCatalog library = new LibraryCatalog();
-        Customer user = new Customer();
+        User user = new User();
         Book testBook = new Book("A", "author", 11);
         testBook.setAvailable(false);
         library.getBookList().addItem(testBook);
@@ -41,7 +46,7 @@ public class ReturnCommandTest {
     @Test
     public void returnInvalidBook(){
         LibraryCatalog library = new LibraryCatalog();
-        Customer user = new Customer();
+        User user = new User();
         ReturnItemWrapper returnBook = new ReturnItemWrapper(user, library);
         returnBook.execute(ItemType.BOOK, "Inception");
         assertEquals("That is not a valid book to return\n", outContent.toString());
@@ -50,7 +55,7 @@ public class ReturnCommandTest {
     @Test
     public void returnInvalidMovie(){
         LibraryCatalog library = new LibraryCatalog();
-        Customer user = new Customer();
+        User user = new User();
         ReturnItemWrapper returnItem = new ReturnItemWrapper(user, library);
         returnItem.execute(ItemType.MOVIE,"invalid");
         assertEquals("That is not a valid movie to return\n", outContent.toString());
@@ -59,7 +64,7 @@ public class ReturnCommandTest {
     @Test
     public void returnMovie(){
         LibraryCatalog library = new LibraryCatalog();
-        Customer user = new Customer();
+        User user = new User();
         Movie movie = new Movie("A", "director", 11,10);
         movie.setAvailable(false);
         library.getMovieList().addItem(movie);
@@ -73,7 +78,7 @@ public class ReturnCommandTest {
     @Test
     public void returnInvalidType(){
         LibraryCatalog library = new LibraryCatalog();
-        Customer user = new Customer();
+        User user = new User();
         ReturnItemWrapper returnItem = new ReturnItemWrapper(user, library);
         returnItem.execute(ItemType.INVALID, "A");
         assertEquals("That is not a valid item to return\n", outContent.toString());

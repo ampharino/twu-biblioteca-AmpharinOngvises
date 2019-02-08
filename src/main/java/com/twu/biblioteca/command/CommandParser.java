@@ -1,20 +1,10 @@
 package com.twu.biblioteca.command;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 
 public class CommandParser {
-    public static final int LIST_ALL_BOOKS = 0;
-    public static final int INVALID_COMMAND = -1;
-    public static final int EXIT = 1;
-    public static final int CHECKOUT = 2;
-    public static final int RETURN = 3;
-    public static final int OPTIONS = 4;
-    public static final int USER_ITEMS = 5;
-    public static final int LIST_ITEMS = 6;
-    public static final int LOGIN = 7;
-    public static final int CONTACT_INFO = 8;
+
 
 
     public static String[] getCommandFromUser(){
@@ -29,26 +19,26 @@ public class CommandParser {
         return cmdAndArgs;
     }
 
-    public static int parseCommand(String cmd){
+    public static CommandType parseCommand(String cmd){
         switch(cmd){
             case "list":
-                return LIST_ITEMS;
+                return CommandType.LIST_ITEMS;
             case "quit":
-                return EXIT;
+                return CommandType.EXIT;
             case "checkout":
-                return CHECKOUT;
+                return CommandType.CHECKOUT;
             case "return":
-                return RETURN;
+                return CommandType.RETURN;
             case "options":
-                return OPTIONS;
+                return CommandType.OPTIONS;
             case "myitems":
-                return USER_ITEMS;
+                return CommandType.USER_ITEMS;
             case "login":
-                return LOGIN;
+                return CommandType.LOGIN;
             case "myinfo":
-                return CONTACT_INFO;
+                return CommandType.CONTACT_INFO;
             default:
-                return INVALID_COMMAND;
+                return CommandType.INVALID_COMMAND;
 
         }
     }

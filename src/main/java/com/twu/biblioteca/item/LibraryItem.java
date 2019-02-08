@@ -1,4 +1,4 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.item;
 
 public abstract class LibraryItem {
     private String title;
@@ -20,5 +20,5 @@ public abstract class LibraryItem {
         this.available = availability;
     }
 
-    abstract void displayInfo();
+    public abstract void displayInfo();
 }

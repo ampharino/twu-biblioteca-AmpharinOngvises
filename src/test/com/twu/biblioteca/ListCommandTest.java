@@ -1,11 +1,15 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.item.Book;
+import com.twu.biblioteca.item.ItemType;
+import com.twu.biblioteca.itemlist.BookList;
+import com.twu.biblioteca.itemlist.LibraryCatalog;
 import com.twu.biblioteca.command.*;
+import com.twu.biblioteca.user.User;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
@@ -47,7 +51,7 @@ public class ListCommandTest {
 
     @Test
     public void listUserBooks(){
-        Customer user = new Customer();
+        User user = new User();
         Command listUserBooks = new ListUserBooksCommand(user);
         Book book = new Book("a", "author", 1);
         user.addItemToCollection(ItemType.BOOK,book);
@@ -57,7 +61,7 @@ public class ListCommandTest {
 
     @Test
     public void userHasNoCheckedOutBooks(){
-        Customer user = new Customer();
+        User user = new User();
         Command listUserBooks = new ListUserBooksCommand(user);
         listUserBooks.execute();
         assertEquals("You have not checked out any books\n", outContent.toString());

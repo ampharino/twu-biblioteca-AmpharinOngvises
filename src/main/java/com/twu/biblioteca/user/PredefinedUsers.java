@@ -1,11 +1,9 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.user;
 
 public enum PredefinedUsers {
 
     USER1("Adam", "123-4567", "password1", "adam@email.com", "123-456-7890" ),
-    USER2("David", "098-7654", "password2", "david@email.com", "098-765-4321"),
-    GUEST("Guest", "", "", "", "");
-
+    USER2("David", "098-7654", "password2", "david@email.com", "098-765-4321");
 
     private final String name;
     private final String libraryNumber;

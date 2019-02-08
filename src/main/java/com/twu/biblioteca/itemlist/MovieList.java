@@ -1,4 +1,7 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.itemlist;
+
+import com.twu.biblioteca.item.LibraryItem;
+import com.twu.biblioteca.item.Movie;
 
 import java.util.HashMap;
 import java.util.Map;

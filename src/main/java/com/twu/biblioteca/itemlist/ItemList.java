@@ -1,6 +1,6 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.itemlist;
 
-import java.util.Map;
+import com.twu.biblioteca.item.LibraryItem;
 
 public interface ItemList {
 

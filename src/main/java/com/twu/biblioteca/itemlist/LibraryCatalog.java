@@ -1,4 +1,7 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.itemlist;
+
+import com.twu.biblioteca.item.LibraryItem;
+import com.twu.biblioteca.item.ItemType;
 
 public class LibraryCatalog {
     private ItemList bookList;

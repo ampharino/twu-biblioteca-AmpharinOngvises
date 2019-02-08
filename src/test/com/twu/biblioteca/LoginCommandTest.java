@@ -1,7 +1,7 @@
 package com.twu.biblioteca;
 
-import com.twu.biblioteca.command.Command;
 import com.twu.biblioteca.command.LoginCommand;
+import com.twu.biblioteca.user.User;
 import org.junit.Test;
 
 
@@ -13,7 +13,7 @@ public class LoginCommandTest {
 
     @Test
     public void login(){
-        Customer sessionUser = null;
+        User sessionUser = null;
         ByteArrayInputStream in  = new ByteArrayInputStream(("123-4567"  + '\n' +
                 "password1" + '\n').getBytes());
         System.setIn(in);

@@ -1,7 +1,7 @@
 package com.twu.biblioteca.command;
 
-import com.twu.biblioteca.ItemType;
-import com.twu.biblioteca.LibraryCatalog;
+import com.twu.biblioteca.item.ItemType;
+import com.twu.biblioteca.itemlist.LibraryCatalog;
 
 public class ListItemsWrapper {
     private LibraryCatalog library;

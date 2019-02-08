@@ -1,11 +1,11 @@
 package com.twu.biblioteca.command;
 
-import com.twu.biblioteca.Customer;
+import com.twu.biblioteca.user.User;
 
 public class ListUserBooksCommand implements Command {
-    private Customer user;
+    private User user;
 
-    public ListUserBooksCommand(Customer user){
+    public ListUserBooksCommand(User user){
         this.user = user;
     }
 
